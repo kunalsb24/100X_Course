@@ -1,0 +1,9 @@
+Middlewares: 
+https://petal-estimate-4e9.notion.site/HTTP-Deep-dive-d59b6336fa5a46daa56c21063578d400?pvs=143
+
+1. It may or may not change the request object.
+2. It will either stop the request right there or 
+3. forward the request to the real route handler
+
+
+cors - Cross Origin Resource Sharing
