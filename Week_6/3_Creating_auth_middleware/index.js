@@ -1,20 +1,25 @@
 const express = require("express");
-
+const cors = require("cors"); 
 const jwt = require("jsonwebtoken")
 const JWT_SECRET = "Kunal@123"
 
 const app = express();
 
+app.use(cors());   
 app.use(express.json());
 
 const users = []; // in memory data
 
+app.get('/', function(req, res){
+    res.sendFile(__dirname + "/public/index.html");
+})
+
 function signUp(req, res){
-    const userName = req.body.userName;
+    const username = req.body.username;
     const password = req.body.password;
 
     users.push({
-        userName: userName,
+        username: username,
         password: password
     })
 
@@ -26,13 +31,13 @@ function signUp(req, res){
 }
 
 function signIn(req, res){
-    const userName = req.body.userName;
+    const username = req.body.username;
     const password = req.body.password;
 
     let founduser = null;
 
     for(let i=0; i<users.length; i++){
-        if(users[i].userName === userName && users[i].password === password){
+        if(users[i].username === username && users[i].password === password){
             founduser = users[i]
         }
     }
@@ -42,7 +47,7 @@ function signIn(req, res){
 
     if(founduser){
         const token = jwt.sign({
-            userName: userName
+            username: username
         }, JWT_SECRET); // converts username to jwt
 
         // founduser.token = token;
@@ -64,14 +69,14 @@ function myDetails(req, res){
     let foundUser = null;
 
     for(let i=0; i<users.length; i++){
-        if(users[i].userName == req.userName){
+        if(users[i].username == req.username){
             foundUser = users[i]
         }
     }
 
     if(foundUser){
         res.json({
-            userName: foundUser.userName,
+            username: foundUser.username,
             password: foundUser.password
         })
     } 
@@ -82,16 +87,14 @@ function myDetails(req, res){
 function auth(req, res, next){
     const token = req.headers.token;
     const decodedData = jwt.verify(token, JWT_SECRET);
-    if(decodedData.userName){
-        req.userName = decodedData.userName;
+    if(decodedData.username){
+        req.username = decodedData.username;
         next();
     } else {
         res.json({
             message: "You are not logged in"
         })
     }
-
-    next();
 }
 
 app.post('/sign-up', signUp)
