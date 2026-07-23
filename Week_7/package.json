@@ -1,0 +1,16 @@
+{
+  "name": "week_7",
+  "version": "1.0.0",
+  "description": "** Slides: https://petal-estimate-4e9.notion.site/Databases-and-MongoDb-1017dfd107358065a996cda5ed89682e?pvs=74",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jsonwebtoken": "^9.0.3",
+    "mongoose": "^9.8.0"
+  }
+}
