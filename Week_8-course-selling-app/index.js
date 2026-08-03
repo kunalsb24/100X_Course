@@ -12,7 +12,7 @@ app.use("/api/v1/admin", adminRouter);
 app.use("/api/v1/course", courseRouter);
 
 async function main(){
-    await mongoose.connect("mongodb+srv://kunalbhajbhuje5_db_user:plqDRO7zenpfzThp@cluster0.wbdnjio.mongodb.net/coursera-app")
+    await mongoose.connect("mongodb+srv://kunalbhajbhuje5_db_user:plqDRO7zenpfzThp@cluster0.wbdnjio.mongodb.net/course-app")
     app.listen(3800);
     console.log("Listening on port 3800")   
 }

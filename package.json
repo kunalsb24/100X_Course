@@ -1,5 +1,24 @@
 {
   "dependencies": {
     "express": "^5.2.1"
-  }
+  },
+  "name": "100x",
+  "version": "1.0.0",
+  "description": "\"# 100X_Course\"",
+  "main": "index.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kunalsb24/100X_Course.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kunalsb24/100X_Course/issues"
+  },
+  "homepage": "https://github.com/kunalsb24/100X_Course#readme"
 }
