@@ -1,56 +1,46 @@
 import { useEffect, useState } from "react"
 
+// useEffect. dependency array, cleanups
 function App() {
 
-  // Conditionally rendering counter component
-  let [counterVisible, setCounterVisible] = useState(true);
+  const [count, setCount] = useState(0);
+  const [count2, setCount2] = useState(0);
 
-    useEffect(function(){
-      setInterval(function(){
-        setCounterVisible(c => !c);
-      }, 5000)
-    }, [])
+  function increase(){
+    setCount(c => c+1)
+  }
+
+  function decrease(){
+    setCount2(c => c-1)
+  }
 
   return <div>
-
-    {counterVisible && <Counter></Counter>}
-    
+    <Counter count={count} count2={count2}/>
+    <button onClick={increase}>Increase Count</button>
+    <button onClick={decrease}>Decrease Count</button>
   </div>
+ 
 }
 
 // mounting, re-rendering, unmounting
-function Counter(){
+function Counter(props){
 
-  const [count, setCount] = useState(0);
-  
-  // guard our setInterval from re-renders
   useEffect(function(){
-    let clock = setInterval(function(){
-      setCount(count => count + 1);
-    }, 1000);
+    console.log("mount");
 
     return function(){
-      clearInterval(clock)
+      console.log("unmount")
     }
   }, []);
 
-  function increaseCount(){
-    setCount(count + 1);
-  }
-
-  // function decreaseCount(){
-  //   setCount(count - 1);
-  // }
-
-  // function resetCount(){
-  //   setCount(0);
-  // }
+  useEffect(function(){
+    console.log("count has changed");
+  }, [props.count, props.count2]);
 
   return <div>
-    <h1>{count}</h1>
-    <button onClick={increaseCount}>Increase count </button>
-    {/* <button onClick={decreaseCount}>Decrease count </button>
-    <button onClick={resetCount}>Reset count </button> */}
+    Counter1 {props.count} <br />
+    Counter2 {props.count2} <br />
   </div>
 }
+
 export default App
