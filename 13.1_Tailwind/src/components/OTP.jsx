@@ -147,7 +147,7 @@ function OtpInput({ value, onChange, length }) {
             onPaste={(e) => {
               handlePaste(index, e);
             }}
-            className="m-1 h-[50px] w-[40px] rounded-xl bg-blue-500 text-center text-white outline-none"
+            className="m-1 h-12.5 w-10 rounded-xl bg-blue-500 text-center text-white outline-none"
           />
         );
       })}
