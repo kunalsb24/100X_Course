@@ -1,0 +1,14 @@
+import { atom, selector } from "recoil";
+
+export const counterAtom = atom({
+    default: 0,
+    key: "counter"
+})
+
+export const evenSelector = selector({
+  key: 'isEven',
+  get: ({ get }) => {
+    const currentCount = get(counterAtom);
+    return (currentCount % 2 == 0);
+  },
+})
