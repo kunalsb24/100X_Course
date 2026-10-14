@@ -3,7 +3,8 @@
     "express": "^5.2.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "recoil": "^0.7.7"
+    "recoil": "^0.7.7",
+    "typescript": "^7.0.2"
   },
   "name": "100x",
   "version": "1.0.0",
@@ -22,5 +23,10 @@
   "bugs": {
     "url": "https://github.com/kunalsb24/100X_Course/issues"
   },
-  "homepage": "https://github.com/kunalsb24/100X_Course#readme"
+  "homepage": "https://github.com/kunalsb24/100X_Course#readme",
+  "devDependencies": {
+    "autoprefixer": "^10.6.1",
+    "postcss": "^8.5.29",
+    "tailwindcss": "^3.4.19"
+  }
 }
